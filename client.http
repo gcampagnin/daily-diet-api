@@ -1,0 +1,71 @@
+@baseUrl = http://localhost:3333
+
+### Create user
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "name": "Jane Doe",
+  "email": "jane.doe.{{$timestamp}}@example.com"
+}
+
+> {% client.global.set("userId", response.body.user.id); %}
+
+### Get user by id
+GET {{baseUrl}}/users/{{userId}}
+
+### Create meal (on diet)
+POST {{baseUrl}}/meals
+Content-Type: application/json
+user-id: {{userId}}
+
+{
+  "name": "Breakfast",
+  "description": "Greek yogurt with fruits",
+  "datetime": "2025-01-01T08:00:00.000Z",
+  "is_on_diet": true
+}
+
+> {% client.global.set("mealId", response.body.meal.id); %}
+
+### Create meal (off diet)
+POST {{baseUrl}}/meals
+Content-Type: application/json
+user-id: {{userId}}
+
+{
+  "name": "Dessert",
+  "description": "Chocolate cake",
+  "datetime": "2025-01-01T20:00:00.000Z",
+  "is_on_diet": false
+}
+
+> {% client.global.set("secondMealId", response.body.meal.id); %}
+
+### List meals
+GET {{baseUrl}}/meals
+user-id: {{userId}}
+
+### Show meal
+GET {{baseUrl}}/meals/{{mealId}}
+user-id: {{userId}}
+
+### Update meal
+PUT {{baseUrl}}/meals/{{mealId}}
+Content-Type: application/json
+user-id: {{userId}}
+
+{
+  "name": "Lunch",
+  "description": "Grilled chicken and salad",
+  "datetime": "2025-01-02T12:00:00.000Z",
+  "is_on_diet": true
+}
+
+### Delete meal
+DELETE {{baseUrl}}/meals/{{secondMealId}}
+user-id: {{userId}}
+
+### Metrics
+GET {{baseUrl}}/metrics
+user-id: {{userId}}

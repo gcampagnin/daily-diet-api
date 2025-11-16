@@ -1,0 +1,13 @@
+node_modules/
+dist/
+tmp/
+
+# Keep environment variables out of version control
+.env
+.env.local
+.env.*
+!.env.example
+
+# Misc build and log artifacts
+*.log
+coverage/
