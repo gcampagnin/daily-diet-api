@@ -26,8 +26,9 @@ O *Daily Diet* é um sistema de controle nutricional no qual usuários registram
 - Email deve ser único.
 
 ### **FR-002 — Identificar Usuário**
-- Via header `user-id` ou token.
-- Todas as rotas de refeição exigem identificação.
+- Identificação obrigatória via header `user-id`.
+- Não há suporte a token de autenticação.
+- Todas as rotas de refeição e métricas exigem identificação.
 
 ### **FR-003 — Criar Refeição**
 - `name`, `description`, `datetime`, `is_on_diet`, `user_id`.
