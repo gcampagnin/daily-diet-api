@@ -54,7 +54,7 @@ API REST construída com Node.js, Fastify e Prisma para registrar refeições di
 - **Migrations:** ficam em `prisma/migrations/`. Sempre rode as migrations antes de subir a aplicação.
 
 ## Identificação do usuário
-As rotas de refeições e métricas usam o middleware `ensureUser` (`src/middlewares/ensure-user.ts`) que exige o header `user-id`. Esse valor precisa ser o `id` retornado pelo cadastro do usuário (rota `POST /users`). Requisições sem o header ou com usuário inexistente recebem `401/404`.
+As rotas de refeições e métricas usam o middleware `ensureUser` (`src/middlewares/ensure-user.ts`) que exige o header `user-id`. Esse é o único método de autenticação disponível — não há suporte a token. O valor do header precisa ser o `id` retornado pelo cadastro do usuário (rota `POST /users`). Requisições sem o header ou com usuário inexistente recebem `401/404`.
 
 ## Endpoints
 
