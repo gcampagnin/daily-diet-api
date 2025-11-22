@@ -10,7 +10,8 @@
     "prisma": "prisma",
     "prisma:migrate": "prisma migrate dev",
     "prisma:generate": "prisma generate",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "test": "node --test --import tsx src/**/*.spec.ts"
   },
   "keywords": [],
   "author": "",
