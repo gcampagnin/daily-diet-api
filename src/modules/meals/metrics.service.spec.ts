@@ -25,7 +25,7 @@ function createMeal(
 
 function createMetricsServiceWithMeals(meals: Meal[]) {
   const repository = {
-    async countByUser() {
+    async countByUser(_userId: string) {
       return meals.length;
     },
     async countByUserAndDietFlag(_userId: string, isOnDiet: boolean) {
