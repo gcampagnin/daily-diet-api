@@ -232,7 +232,7 @@ components:
 - [ ] CRUD completo
 - [ ] Validação de data e hora
 - [ ] Garantir domínio do usuário sobre refeição
-- [ ] Ordernar refeições por data/hora
+- [ ] Ordenar refeições por data/hora
 
 ### **Métricas**
 - [ ] Total de refeições
